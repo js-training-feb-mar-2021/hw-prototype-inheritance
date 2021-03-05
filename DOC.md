@@ -39,4 +39,4 @@
     + .calculatePrice()
     + .calculateCalories()
 
-**Приятного аппетита! =)
+Приятного аппетита! =)
