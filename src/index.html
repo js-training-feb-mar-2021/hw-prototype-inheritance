@@ -15,14 +15,13 @@
         <h2>Menu</h2>
         <div class="hamburger">
             <h3>Hamburger</h3>
-            <form name="first">
+            <form name="first" class="dish">
                 <label for="size">Choose size:</label>
                 <select id="size">
                     <option>Size</option>
                     <option value="small">Small</option>
                     <option value="big">Big</option>
                 </select>
-                <br>
                 <label for="stuffing">Choose stuffing:</label>
                 <select id="stuffing">
                     <option>Stuffing</option>
@@ -35,13 +34,15 @@
         </div>
         <div class="salad">
             <h3>Salad</h3>
-            <form>
+            <form class="dish">
                 <label for="salad">Choose salad:</label>
                 <select id="salad">
                     <option>Salad</option>
                     <option value="Caesar">Caesar</option>
                     <option value="Olivie">Olivie</option>
                 </select>
+                <p>Choose weight:</p>
+                <input type="weight" size="1" maxlength="3">
                 <input type="submit" value="Add" class="add">
             </form>
         </div>

@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 .header {
     text-align: center;
     background-color: #f8afc2;
@@ -22,6 +26,16 @@
     flex-direction: column;
     line-height: 2.5rem;
     padding: 0 7rem;
+}
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    max-width: 7rem;
+}
+
+.add {
+    margin-top: 0.6rem;
 }
 
 .basket {
