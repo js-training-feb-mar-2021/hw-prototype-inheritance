@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <h1>Welcome to our Cafe!</h1>
+</header>
+
+<main class="content">
+    <div class="menu">
+        <h2>Menu</h2>
+        <div class="hamburger">
+            <h3>Hamburger</h3>
+            <form name="first">
+                <label for="size">Choose size:</label>
+                <select id="size">
+                    <option>Size</option>
+                    <option value="small">Small</option>
+                    <option value="big">Big</option>
+                </select>
+                <br>
+                <label for="stuffing">Choose stuffing:</label>
+                <select id="stuffing">
+                    <option>Stuffing</option>
+                    <option value="cheese">Cheese</option>
+                    <option value="salad">Salad</option>
+                    <option value="potato">Potato</option>
+                </select>
+                <input type="submit" value="Add" class="add">
+            </form>
+        </div>
+        <div class="salad">
+            <h3>Salad</h3>
+            <form>
+                <label for="salad">Choose salad:</label>
+                <select id="salad">
+                    <option>Salad</option>
+                    <option value="Caesar">Caesar</option>
+                    <option value="Olivie">Olivie</option>
+                </select>
+                <input type="submit" value="Add" class="add">
+            </form>
+        </div>
+        <div class="drink">
+            <h3>Drink</h3>
+            <form>
+                <label for="drink">Choose drink:</label>
+                <select id="drink">
+                    <option>Drink</option>
+                    <option value="Cola">Cola</option>
+                    <option value="Coffee">Coffee</option>
+                </select>
+                <input type="submit" value="Add" class="add">
+            </form>
+        </div>
+</div>
+    <div class="basket">
+        <h2>Your order</h2>
+        <ul>
+            <li class="basket_item">1</li>
+            <li class="basket_item">2</li>
+            <li class="basket_item">3</li>
+        </ul>
+        <button class="pay">Pay</button>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
