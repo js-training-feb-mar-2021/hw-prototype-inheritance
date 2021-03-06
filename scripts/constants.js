@@ -1,3 +1,5 @@
+'use strict';
+
 var HUMBURGER_STUFF = [
     {
         id: 'cheese',

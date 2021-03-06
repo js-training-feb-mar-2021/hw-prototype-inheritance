@@ -1,3 +1,5 @@
+'use strict';
+
 var humburger = function(payload, Parent) {
     var size = {}
     var stuff = [];

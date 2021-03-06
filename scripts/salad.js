@@ -1,3 +1,5 @@
+'use strict';
+
 var salad = function(payload, Parent) {
     var salad = [];
     var grams = 0;

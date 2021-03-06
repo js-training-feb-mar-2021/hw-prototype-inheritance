@@ -1,3 +1,5 @@
+'use strict';
+
 var FoodConstructor = function() {
     var price = 0;
     var calories = 0;

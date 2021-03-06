@@ -1,3 +1,5 @@
+'use strict';
+
 var drink = function(payload, Parent) {
     var drink = [];
 
