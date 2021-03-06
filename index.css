@@ -192,3 +192,23 @@
 .order__reset:hover {
     cursor: pointer;
 }
+
+.order__pain {
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    border: 2px solid #252A34;
+    border-radius: 6px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.order__pain_hidden {
+    display: none;
+}
+
+.order__pain:hover {
+    cursor: pointer;
+}

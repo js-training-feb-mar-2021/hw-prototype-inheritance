@@ -3,6 +3,7 @@ var orderList = document.querySelector('.order__list');
 var orderTotal = document.querySelector('.order__total');
 var orderCalories = document.querySelector('.order__calories');
 var orderReset = document.querySelector('.order__reset');
+var orderPay = document.querySelector('.order__pain');
 
 /** Создаем заказ */
 var newOrder = order();
@@ -20,16 +21,31 @@ function setCheckboxState(ev) {
     }
 }
 
+/** Изменение сосотояния кнопки Оплатить */
+function setPayButtonState() {
+    if (newOrder.getOrderList().length) {
+       orderPay.classList.remove('order__pain_hidden');
+
+       return;
+    }
+
+    orderPay.classList.add('order__pain_hidden');
+};
+
 /** Обнуление заказа */
 function resetOrder() {
     newOrder.resetOrder();
     setOrder(newOrder.getOrderList());
+
+    setPayButtonState();
 }
 
 /** Удаление одного элемента из заказа */ 
 function removeItem(id) {
     newOrder.removeOrderItem(id);
     setOrder(newOrder.getOrderList());
+
+    setPayButtonState();
 }
 
 /** Сетим информацию об итоговой сумме заказа и общей сумме калорий */
@@ -55,6 +71,8 @@ function setOrder(data) {
     );
 
     setOrderTotalInfo(data);
+
+    setPayButtonState();
 }
 
 /** Создаем объекты с данными по элементу заказа и вызываем обносление состояния заказа на странице */
@@ -98,6 +116,14 @@ function submitNewOrderItem(ev) {
     createNewOrderItem(getBlockItems(blockName, blockItems), blockItems);
 }
 
+function pay() {
+    var allButtons = document.querySelectorAll('button');
+    var allSubmitInputs = document.querySelectorAll('.form__submit');
+
+    Array.from(allButtons).concat(Array.from(allSubmitInputs)).forEach(function (button) {
+        button.setAttribute('disabled', true);
+    });
+}
 
 // Добавление нового элемента заказа
 menuForm.addEventListener('submit', submitNewOrderItem);
@@ -105,4 +131,6 @@ menuForm.addEventListener('submit', submitNewOrderItem);
 orderReset.addEventListener('click', resetOrder);
 // Изменение состояния чекбоксов
 menuForm.addEventListener('click', setCheckboxState);
+// Оплата заказа
+orderPay.addEventListener('click', pay);
 
