@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Prototype inheritance</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body class="body">
+    <header class="header">
+        <h1 class="header__title">Good Food</h1>
+    </header>
+    <main class="main">
+        <section class="menu">
+            <h2 class="title">Меню</h2>
+            <form class="form">
+                <fieldset class="form__fieldset" id="humburder">
+                    <p class="form__title">Гамбургер:</p>
+                    <div class="form__item">
+                        <label for="large">Большой</label>
+                        <input type="radio" id="large" value="large" name="humburder" checked>
+                        <label for="small">Маленький</label>
+                        <input type="radio" id="small" value="small" name="humburder">
+                    </div>
+                    <p class="form__title">Начинки для гамбургера:</p>
+                    <div class="form__item">
+                        <label for="cheese">Сыр</label>
+                        <input type="checkbox" id="cheese" value="cheese" name="humburder" checked>
+                        <label for="salad">Салат</label>
+                        <input type="checkbox" id="salad" value="salad" name="humburder">
+                        <label for="potato">Картофель</label>
+                        <input type="checkbox" id="potato" value="potato" name="humburder">
+                    </div>
+                    <input class="form__submit" type="submit" value="Добавить" name="humburder">
+                </fieldset>
+                <fieldset class="form__fieldset" id="salad">
+                    <p class="form__title">Салаты:</p>
+                    <div class="form__item">
+                        <label for="caesar">Цезарь</label>
+                        <input type="radio" id="caesar" value="caesar" name="salad" checked>
+                        <label for="olivier">Оливье</label>
+                        <input type="radio" id="olivier" value="olivier" name="salad">
+                    </div>
+                    <div class="form__item">
+                        <label for="grams">Количество в граммах</label>
+                        <input type="number" id="grams" value="grams" name="salad">
+                    </div>
+                    <input class="form__submit" type="submit" value="Добавить" name="salad">
+                </fieldset>
+                <fieldset class="form__fieldset" id="drink">
+                    <p class="form__title">Напитки:</p>
+                    <div class="form__item">
+                        <label for="tea">Чай</label>
+                        <input type="radio" id="tea" value="tea" name="drink" checked>
+                        <label for="coffee">Кофе</label>
+                        <input type="radio" id="coffee" value="coffee" name="drink">
+                    </div>
+                    <input class="form__submit" type="submit" value="Добавить" name="drink">
+                </fieldset>
+            </form>
+        </section>
+        <section class="order">
+            <h2 class="title">Заказ</h2>
+            <button class="order__reset">Сбросить</button>
+            <ul class="order__list"></ul>
+            <p class="order__total"></p>
+            <p class="order__calories"></p>
+            <button class="order__pain order__pain_hidden">Оплатить</button>
+        </section>
+    </main>
+    <script src="./scripts/constants.js"></script>
+    <script src="./scripts/helpers.js"></script>
+    <script src="./scripts/MainHandler.js"></script>
+    <script src="./scripts/payButton.js"></script>
+    <script src="./scripts/checkbox.js"></script>
+    <script src="./scripts/radio.js"></script>
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/order.js"></script>
+    <script src="./scripts/orderReset.js"></script>
+    <script src="./scripts/FoodConstructor.js"></script>
+    <script src="./scripts/humburger.js"></script>
+    <script src="./scripts/salad.js"></script>
+    <script src="./scripts/drink.js"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
