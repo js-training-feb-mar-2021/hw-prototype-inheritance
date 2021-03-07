@@ -1,53 +1,65 @@
- var MENU = {
-    drinks: {
-       cola: {
-          calories: 40,
-          price: 50,
-       },
-       coffee: {
-          calories: 20,
-          price: 80,
-       },
-    },
-    salad: {
-       caesar: {
-          calories: 20,
-          price: 17,
-       },
-       oliver: {
-          calories: 80,
-          price: 50,
-       },
-    },
+ Salad.CAESAR = {
+    price: 100,
+    calories: 20,
+    description: "Salad, chicken, souse, garlic, rackers",
+ };
+ Salad.OLIVER = {
+    price: 50,
+    calories: 80,
+    description: "mayonnaise, chicken, potato, peas",
+ };
+ Drink.COLA = {
+    price: 50,
+    calories: 40,
+    description: "cola",
+ };
+ Drink.COFFEE = {
+    price: 80,
+    calories: 20,
+    description: "coffee, milk, sugar"
+ };
+ Hamburger.SIZE_SMALL = {
+    price: 50,
+    calories: 20,
+    description: "small hamburger"
+ };
+ Hamburger.SIZE_LARGE = {
+    price: 100,
+    calories: 40,
+    description: "large hamburger"
+ };
+ Hamburger.STUFFING_CHEESE = {
+    price: 10,
+    calories: 20,
+    description: "cheese"
+ };
+ Hamburger.STUFFING_SALAD = {
+    price: 20,
+    calories: 5,
+    description: "salad"
+ };
+ Hamburger.STUFFING_POTATO = {
+    price: 15,
+    calories: 10,
+    description: "potato"
+ };
 
-    burger: {
-       hamburger_Small: {
-          calories: 20,
-          price: 50,
-       },
-       hamburger_Large: {
-          calories: 40,
-          price: 100,
-       }
-    }
+
+ function MenuProduct(product, amount) {
+    this.product = product,
+       this.amount = amount;
  }
 
- var STUFFS = {
-    STUFFING_CHEESE: {
-       calories: 20,
-       price: 10,
-       description: `stuffing cheese`,
-    },
-    STUFFING_POTATO: {
-       calories: 10,
-       price: 15,
-       description: `stuffing potato`,
-    },
-    STUFFING_SALAD: {
-       calories: 20,
-       price: 2,
-       description: `stuffing salad`,
-    },
+ MenuProduct.prototype.getPrice = function () {
+    return (this.product.price / 100) * this.amount;
+ }
+
+ MenuProduct.prototype.getCalories = function () {
+    return (this.product.calories / 100) * this.amount;
+ }
+
+ MenuProduct.prototype.getStuffing = function () {
+    return this.product.description;
  }
 
  function Hamburger(product, stuffing) {
@@ -56,26 +68,19 @@
  }
 
  Hamburger.prototype.getSize = function () {
-    switch (this.product) {
-       case MENU.hamburger_Small: {
-          return console.log(`small hamburger`);
-       }
-       case MENU.hamburger_Large: {
-          return console.log(`large hamburger`);
-       }
-    }
+    return this.product.description;
  }
 
  Hamburger.prototype.getStuffing = function () {
-    return STUFFS[this.stuffing].description;
+    return this.stuffing.description;
  }
 
  Hamburger.prototype.getPrice = function () {
-    return MENU.burger[this.product].price + STUFFS[this.stuffing].price;
+    return this.product.price + this.stuffing.price;
  }
 
- Hamburger.prototype.calculateCalories = function () {
-    return MENU.burger[this.product].calories + STUFFS[this.stuffing].calories;
+ Hamburger.prototype.getCalories = function () {
+    return this.product.calories + this.stuffing.calories;
  };
 
  function Salad(product, amount) {
@@ -83,26 +88,14 @@
        this.amount = amount;
  }
 
- Salad.prototype.getPrice = function () {
-    return (MENU.salad[this.product].price / 100) * this.amount;
- };
-
- Salad.prototype.calculateCalories = function () {
-    return (MENU.salad[this.product].calories / 100) * this.amount;
- };
+ Salad.prototype = Object.create(MenuProduct.prototype);
 
  function Drink(product, amount) {
     this.product = product
     this.amount = amount
  }
 
- Drink.prototype.calculateCalories = function () {
-    return MENU.drinks[this.product].calories;
- };
-
- Drink.prototype.getPrice = function () {
-    return (MENU.drinks[this.product].price / 100) * this.amount;
- };
+ Drink.prototype = Object.create(MenuProduct.prototype);
 
  function Order(foods) {
     this.orderArray = foods;
@@ -118,27 +111,42 @@
     return this.wholePrice;
  }
 
+ Order.prototype.getTotalCalories = function () {
+   this.totalCalories = 0;
+   for (const key in this.orderArray) {
+      this.totalCalories += this.orderArray[key].getCalories();
+   }
+   return this.totalCalories;
+}
+
  Order.prototype.getPaid = function () {
     this.isPaid = true;
  }
 
+ Order.prototype.addProduct = function (product) {
+    if (this.isPaid) {
+       return `sorry you can't change your order you've paid already`;
+    }
+    this.orderArray.push(product);
+ }
+
  Order.prototype.removeProduct = function (product) {
     if (this.isPaid) {
-       return `can't change your order you've paid already`;
+       return `sorry you can't change your order you've paid already`;
     }
     var index = this.orderArray.indexOf(product);
     this.orderArray.splice(index, 1);
  }
 
- var cola = new Drink('cola', 200);
- var coffee = new Drink(`coffee`, 200);
- var caesar = new Salad(`caesar`, 200);
- var hamburger1 = new Hamburger(`hamburger_Small`, 'STUFFING_CHEESE');
- var hamburger2 = new Hamburger(`hamburger_Large`, 'STUFFING_POTATO');
- var order1 = new Order([hamburger1, hamburger2, caesar, coffee]);
+ var cola = new Drink(Drink.COLA, 280);
+ var coffee = new Drink(Drink.COFFEE, 200);
+ var hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
+ var hamburger2 = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_POTATO);
+ var caesar = new Salad(Salad.CAESAR, 250);
+ var oliver = new Salad(Salad.OLIVER, 200);
+ var order1 = new Order([hamburger1, hamburger2, caesar, coffee, oliver]);
+ var order2 = new Order([hamburger1, oliver]);
 
- console.log(order1.getPrice());
- order1.removeProduct(hamburger1);
- console.log(order1.getPrice());
- console.log(order1.getPaid());
- console.log(order1.removeProduct(hamburger1));
+ console.log(order2.getTotalCalories());
+
+
