@@ -58,7 +58,26 @@ function Order() {
     };
     this.totalPrice = totalPrice;
     this.totalEnergy = totalEnergy;
+    var args = Array.prototype.slice.call(arguments, 0);
+    this.orderList = args;
+    this.isPaid = false;
 }
+
+Order.prototype.pay = function () {this.isPaid = true;};
+Order.prototype.addOrderItem = function (orderItem) {  if (!this.isPaid) { this.orderList.push(orderItem); } };
+Order.prototype.deleteOrderItem = function (orderItem) {
+    if (!this.isPaid) {
+        this.orderList = this.orderList.filter(function (item) {
+      if (
+        item.price === orderItem.price &&
+        item.calories === orderItem.calories &&
+        item.constructor === orderItem.constructor
+      )
+        return false;
+      else return true;
+    });
+  }
+};
 
 
 var test1 = new Order(item1);
