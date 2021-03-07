@@ -34,3 +34,7 @@ firstOrder.addDish(drinkCoffee);
 firstOrder.addDish(hamburgerSmallCheese);
 firstOrder.deleteDish();
 console.log("Price: ", firstOrder.calculatePrice(),"Callories:", firstOrder.calculateCalories());
+firstOrder.pay();
+firstOrder.addDish(drinkCoffee);
+firstOrder.addDish(hamburgerSmallCheese);
+console.log("Price: ", firstOrder.calculatePrice(),"Callories:", firstOrder.calculateCalories());
