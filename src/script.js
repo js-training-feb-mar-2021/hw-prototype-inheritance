@@ -16,8 +16,6 @@ Dish.prototype.calculateCalories = function () {
 function Hamburger(size, stuffing) {
     this.size = size;
     this.stuffing = stuffing;
-    this.price = size.price + stuffing.price;
-    this.calories = size.calories + stuffing.calories;
 }
 
 Hamburger.SIZE_SMALL = { price: 50, calories: 20 };
@@ -37,11 +35,11 @@ Hamburger.prototype.getStuffing = function () {
 }
 
 Hamburger.prototype.calculatePrice = function () {
-    return this.price;
+    return this.size.price + this.stuffing.price;
 }
 
 Hamburger.prototype.calculateCalories = function () {
-    return this.calories;
+    return this.size.calories + this.stuffing.calories;
 }
 
 function Salad(type, weight) {
@@ -64,8 +62,6 @@ Salad.prototype.calculateCalories = function () {
 
 function Drink(type) {
     this.type = type;
-    this.calories = type.calories;
-    this.price = type.price;
 }
 
 Drink.COLA = { type: 'cola', price: 50, calories: 40 };
@@ -90,7 +86,7 @@ Order.prototype.addDish = function (dish) {
 
 Order.prototype.removeDish = function (dish) {
     if (this.dishes.length !== 0) {
-
+        this.dishes = this.dishes.filter(item => item !== dish);
     }
     if (this.isPaid) {
         alert('You cannot change your order. Your order has been paid.');
@@ -108,6 +104,10 @@ Order.prototype.calculateTotalCalories = function () {
         sum += dish.calories;
     })
 }
+
+document.querySelector('.pay').addEventListener('click', event => {
+    Order.isPaid = true;
+})
 
 
 
