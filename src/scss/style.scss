@@ -1,0 +1,32 @@
+
+
+$bckClr : white;
+
+body {
+    min-width: 350px;
+    text-align: center;
+    color: rgb(27, 27, 100);
+    background : rgb(228, 228, 149);
+}
+
+.container{
+    padding: auto;
+    background-color: rgb(231, 217, 196);
+    height: 95%;
+    min-height : 50vh;
+    width : 90%;
+    margin : auto;
+    border: 2px solid black;
+    border-radius :  5px;
+}
+
+code{
+    color: rgb(145, 34, 34);
+    background: rgb(54, 53, 53);
+    text-align: left;
+}
+
+article{
+    text-align: left;
+    padding : 10px;
+}

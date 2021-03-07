@@ -1,0 +1,28 @@
+body {
+  min-width: 350px;
+  text-align: center;
+  color: #1b1b64;
+  background: #e4e495;
+}
+
+.container {
+  padding: auto;
+  background-color: #e7d9c4;
+  height: 95%;
+  min-height: 50vh;
+  width: 90%;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+code {
+  color: #912222;
+  background: #363535;
+  text-align: left;
+}
+
+article {
+  text-align: left;
+  padding: 10px;
+}

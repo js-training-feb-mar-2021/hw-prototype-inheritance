@@ -1,0 +1,32 @@
+{
+  "name": "hw-prototype-inheritance",
+  "version": "1.0.0",
+  "description": "Burger shop order calculation script. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --output-style compressed -o src/css src/scss",
+    "serve": "browser-sync start --server --files 'src/css/*.css, **/*.html'",
+    "watch:css": "onchange 'src/scss' -- npm run scss",
+    "start": "run-p serve watch:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geegtor/hw-prototype-inheritance.git"
+  },
+  "keywords": [
+    "HW5"
+  ],
+  "author": "defremov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geegtor/hw-prototype-inheritance/issues"
+  },
+  "homepage": "https://github.com/Geegtor/hw-prototype-inheritance#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0"
+  }
+}
