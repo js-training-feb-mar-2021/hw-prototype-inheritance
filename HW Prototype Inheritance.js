@@ -162,8 +162,8 @@ var olivie = new Salad(Salad.OLIVIE, 150);
 var caesar = new Salad(Salad.CAESAR, 120);
 
 
-/* для проверки*/
+/* для проверки
 var order = new Order(hamburger, caesar, olivie);
 order.addProduct(hamburger2)
 order.removeProduct(caesar)
-order.getOrderDetails()
+order.getOrderDetails()*/
