@@ -154,16 +154,13 @@ Order.prototype.getOrderDetails = function(){
   )
 }
 
-
+/* для проверки
 var hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
 var hamburger2 = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_SALAD);
-var hamburger3 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_POTATO);
 var olivie = new Salad(Salad.OLIVIE, 150);
 var caesar = new Salad(Salad.CAESAR, 120);
-
-
-/* для проверки
 var order = new Order(hamburger, caesar, olivie);
+
 order.addProduct(hamburger2)
 order.removeProduct(caesar)
 order.getOrderDetails()*/
