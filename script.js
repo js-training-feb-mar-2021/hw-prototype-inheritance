@@ -119,7 +119,7 @@
    return this.totalCalories;
 }
 
- Order.prototype.getPaid = function () {
+ Order.prototype.makePayment = function () {
     this.isPaid = true;
  }
 
@@ -137,16 +137,3 @@
     var index = this.orderArray.indexOf(product);
     this.orderArray.splice(index, 1);
  }
-
- var cola = new Drink(Drink.COLA, 280);
- var coffee = new Drink(Drink.COFFEE, 200);
- var hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
- var hamburger2 = new Hamburger(Hamburger.SIZE_LARGE, Hamburger.STUFFING_POTATO);
- var caesar = new Salad(Salad.CAESAR, 250);
- var oliver = new Salad(Salad.OLIVER, 200);
- var order1 = new Order([hamburger1, hamburger2, caesar, coffee, oliver]);
- var order2 = new Order([hamburger1, oliver]);
-
- console.log(order2.getTotalCalories());
-
-
