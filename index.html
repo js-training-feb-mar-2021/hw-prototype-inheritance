@@ -12,9 +12,64 @@
 
 <body>    
     <div class = "container">
-        <h1>First of the year!</h1> <hr>
-        <p>Simple and clean visual implementation <i><b>should</b></i> appear here</p>
-        <p>Within 1 - 2 days regarding time frames</p><hr>
+        <header>
+            <img src="/src/data/logo.png" height="50px">
+            <h1>First of the year!</h1> 
+            <h2>Burger shop menu calculator</h2>
+        </header>
+
+        <section>
+            <p>Simple and clean visual implementation <i><b>should</b></i> appear here</p>
+            <p>Within 1 - 2 days regarding time frames</p>
+        </section>
+            <hr>
+            <p>Humburgers</p>
+            <div class="position">
+                <form onsubmit="alert('submit!');return false">
+                     Stuffing:
+                    <select name="stuffing" id="burgerStuffing">
+                        <option value="Hamburger.STUFFING_CHEES">Cheese</option>
+                        <option value="Hamburger.STUFFING_SALAD">Salad</option>
+                        <option value="Hamburger.STUFFING_POTATO">Potato</option>
+                    </select><br><br>
+                    Size:
+                    <select name="size" id="burgerSize">
+                        <option value="Hamburger.SIZE_SMALL">S</option>
+                        <option value="Hamburger.SIZE_LARGE">XL</option>
+                    </select><br><br>
+                   <input type="submit" value="+">
+                   <input type="submit" value="-">
+                </form>
+            </div>
+            <hr>
+            <p>Salads</p>
+            <div class="position">
+                <form onsubmit="alert('submit!');return false">
+                     Type:
+                    <select name="salad" id="saladType">
+                        <option value="Salad.CAESAR">Caesar</option>
+                        <option value="Salad.OLIVIE">Olivie</option>
+                    </select><br><br>
+                    Amount:
+                   <input type="text" value="100" class="width50"><br><br>  
+                   <input type="submit" value="+">
+                   <input type="submit" value="-">
+                </form>
+            </div>
+            <hr>
+            <p>Drinks:</p>
+            <div class="position">
+                <form onsubmit="alert('submit!');return false">
+                     Type:
+                    <select name="salad" id="saladType">
+                        <option value="Drink.COLA">Cola</option>
+                        <option value="Drink.COFE">Cofe</option>
+                    </select><br><br>
+                   <input type="submit" value="+">
+                   <input type="submit" value="-">
+                </form>
+            </div>
+            <hr>
         <h2>For console run:</h2>
         <article>
              - Varialbes implemented in the programm :<br>
