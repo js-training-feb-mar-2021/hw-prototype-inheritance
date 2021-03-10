@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Shop Order</title>
+    <link rel="stylesheet" type="text/css" href="src/scss/style.css" />
+    <script src="/src/js/main.js" defer></script>
+    <script src="/src/js/menu.js" defer></script>
+</head>
+
+<body>    
+    <div class = "container">
+        <header>
+            <img src="/src/data/logo.png" height="50px">
+            <h1>BurgerShop menu:</h1>
+        </header>
+
+        <section>
+            <hr>
+            <p>Humburgers</p>
+            <div class="position">
+                <form 
+                onsubmit = "order.addOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));
+                return false"
+                onreset = "order.deleteOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));
+                return false"
+                >
+                     Stuffing:
+                    <select name="stuffing" id="burgerStuffing">
+                        <option value="STUFFING_CHEESE">Cheese</option>
+                        <option value="STUFFING_SALAD">Salad</option>
+                        <option value="STUFFING_POTATO">Potato</option>
+                    </select><br><br>
+                    Size:
+                    <select name="size" id="burgerSize">
+                        <option value="SIZE_SMALL">S</option>
+                        <option value="SIZE_LARGE">XL</option>
+                    </select><br><br>
+                   <input type="submit" value="+">
+                   <input type="reset" value="-">
+                </form>
+            </div>
+            <hr>
+            <p>Salads</p>
+            <div class="position">
+                <form
+                onsubmit = "order.addOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], document.getElementById('saladAmount').value));return false"
+                onreset = "order.deleteOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], document.getElementById('saladAmount').value));return false"
+                >
+                     Type:
+                    <select name="salad" id="saladType">
+                        <option value="CAESAR">Caesar</option>
+                        <option value="OLIVIE">Olivie</option>
+                    </select><br><br>
+                    Amount:
+                   <input type="text" id="saladAmount" value="100" class="width50"><br><br>  
+                   <input type="submit" value="+">
+                   <input type="reset" value="-">
+                </form>
+            </div>
+            <hr>
+            <p>Drinks:</p>
+            <div class="position">
+                <form 
+                onsubmit = "order.addOrderItem(temp = new Drink(Drink[document.getElementById('drinkType').value]));return false"
+                onreset = "order.deleteOrderItem(temp = new Drink(Drink[document.getElementById('drinkType').value]));return false"
+                >
+                     Type:
+                    <select name="drink" id="drinkType">
+                        <option value="COLA">Cola</option>
+                        <option value="COFE">Cofe</option>
+                    </select><br><br>
+                   <input type="submit" value="+">
+                   <input type="reset" value="-">
+                </form>
+            </div>
+            <hr>
+            <form action="/src//js/main.js"
+                    onsubmit = "order.pay();return false"
+                    onreset = "order = new Order();return false"   
+            >
+                <input type="submit" value="Pay ordered">
+                <input type="reset" value="New order"><br><br>
+                <input type="button" onclick="alert(`Order cost ${order.totalPrice()}\nOrder callories ${order.totalCalories()}`)" value="Show total">
+            </form>
+            <hr>
+        </section>
+        <article>
+             <h2>For console testing:</h2>
+             <p> Order items variables:</p>
+            <code>
+                <ul>
+                    <li>var item1 = new Hamburger(Hamburger.STUFFING_CHEESE, Hamburger.SIZE_LARGE)</li>
+                    <li>var item2 = new Salad(Salad.OLIVIE, 218);</li>
+                    <li>var item3 = new Drink(Drink.COLA)</li>
+                </ul>
+            </code>
+            <p> Order function calculation tests:</p>
+                <code>
+                    <ul>
+                        <li>var test1 = new Order(item1)</li>
+                        <li>var test2 = new Order(item1, item2)</li>
+                        <li>var test3 = new Order(item1, item2, item3)</li>
+                        <li>var test4 =  new Order(item3, item3, item3, item3, item3, item3, item3, item3, item3, item3,)</li>
+                    </ul>
+            </code>
+        </article>
+    </div>
+</body>
+</html>
