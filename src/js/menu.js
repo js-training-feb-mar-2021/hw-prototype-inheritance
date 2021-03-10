@@ -12,6 +12,7 @@ Hamburger.STUFFING_CHEESE = { price: 10, energy: 20 };
 Hamburger.STUFFING_POTATO = { price: 50, energy: 20 };
 
 var item1 = new Hamburger(Hamburger.STUFFING_CHEESE, Hamburger.SIZE_LARGE);
+var hamburger = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]);
 
 Hamburger.prototype.getSize = function () { return this.size };
 Hamburger.prototype.getStuffing = function () { return this.stuffing };

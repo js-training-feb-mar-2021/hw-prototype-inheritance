@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger Shop Order</title>
     <link rel="stylesheet" type="text/css" href="src/scss/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.4/math.js"></script>
     <script src="/src/js/main.js" defer></script>
+    <script src="/src/js/menu.js" defer></script>
 </head>
 
 <body>    
@@ -25,48 +25,57 @@
             <hr>
             <p>Humburgers</p>
             <div class="position">
-                <form onsubmit="alert('submit!');return false">
+                <form 
+                onsubmit = "order.addOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));return false"
+                onreset = "order.deleteOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));return false"
+                >
                      Stuffing:
                     <select name="stuffing" id="burgerStuffing">
-                        <option value="Hamburger.STUFFING_CHEES">Cheese</option>
-                        <option value="Hamburger.STUFFING_SALAD">Salad</option>
-                        <option value="Hamburger.STUFFING_POTATO">Potato</option>
+                        <option value="STUFFING_CHEESE">Cheese</option>
+                        <option value="STUFFING_SALAD">Salad</option>
+                        <option value="STUFFING_POTATO">Potato</option>
                     </select><br><br>
                     Size:
                     <select name="size" id="burgerSize">
-                        <option value="Hamburger.SIZE_SMALL">S</option>
-                        <option value="Hamburger.SIZE_LARGE">XL</option>
+                        <option value="SIZE_SMALL">S</option>
+                        <option value="SIZE_LARGE">XL</option>
                     </select><br><br>
                    <input type="submit" value="+">
-                   <input type="submit" value="-">
+                   <input type="reset" value="-">
                 </form>
             </div>
             <hr>
             <p>Salads</p>
             <div class="position">
-                <form onsubmit="alert('submit!');return false">
+                <form
+                onsubmit = "order.addOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], Salad[document.getElementById('saladAmount').value]));return false"
+                onreset = "order.deleteOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], Salad[document.getElementById('saladAmount').value]));return false"
+                >
                      Type:
                     <select name="salad" id="saladType">
-                        <option value="Salad.CAESAR">Caesar</option>
-                        <option value="Salad.OLIVIE">Olivie</option>
+                        <option value="CAESAR">Caesar</option>
+                        <option value="OLIVIE">Olivie</option>
                     </select><br><br>
                     Amount:
-                   <input type="text" value="100" class="width50"><br><br>  
+                   <input type="text" id="saladAmount" value="100" class="width50"><br><br>  
                    <input type="submit" value="+">
-                   <input type="submit" value="-">
+                   <input type="reset" value="-">
                 </form>
             </div>
             <hr>
             <p>Drinks:</p>
             <div class="position">
-                <form onsubmit="alert('submit!');return false">
+                <form 
+                onsubmit = "order.addOrderItem(temp = new Drink(Drink[document.getElementById('drinkType').value]));return false"
+                onreset = "order.deleteOrderItem(temp = new Drink(Drink[document.getElementById('drinkType').value]));return false"
+                >
                      Type:
-                    <select name="salad" id="saladType">
-                        <option value="Drink.COLA">Cola</option>
-                        <option value="Drink.COFE">Cofe</option>
+                    <select name="drink" id="drinkType">
+                        <option value="COLA">Cola</option>
+                        <option value="COFE">Cofe</option>
                     </select><br><br>
                    <input type="submit" value="+">
-                   <input type="submit" value="-">
+                   <input type="reset" value="-">
                 </form>
             </div>
             <hr>
