@@ -5,14 +5,14 @@ function Order() {
 }
 
 Order.prototype.totalPrice = function () {
-  return this.orderList.reduce(function (acc, orderItem) {
-    return acc + orderItem.calculatePrice();
+  return this.orderList.reduce(function (sum, orderItem) {
+    return sum + orderItem.calculatePrice();
   }, 0);
 };
 
 Order.prototype.totalCalories = function () {
-  return this.orderList.reduce(function (acc, orderItem) {
-    return acc + orderItem.calculateCalories();
+  return this.orderList.reduce(function (sum, orderItem) {
+    return sum + orderItem.calculateCalories();
   }, 0);
 };
 

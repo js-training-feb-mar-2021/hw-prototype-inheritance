@@ -14,20 +14,18 @@
     <div class = "container">
         <header>
             <img src="/src/data/logo.png" height="50px">
-            <h1>First of the year!</h1> 
-            <h2>Burger shop menu calculator</h2>
+            <h1>BurgerShop menu:</h1>
         </header>
 
         <section>
-            <p>Simple and clean visual implementation <i><b>should</b></i> appear here</p>
-            <p>Within 1 - 2 days regarding time frames</p>
-        </section>
             <hr>
             <p>Humburgers</p>
             <div class="position">
                 <form 
-                onsubmit = "order.addOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));return false"
-                onreset = "order.deleteOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));return false"
+                onsubmit = "order.addOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));
+                return false"
+                onreset = "order.deleteOrderItem(temp = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]));
+                return false"
                 >
                      Stuffing:
                     <select name="stuffing" id="burgerStuffing">
@@ -48,8 +46,8 @@
             <p>Salads</p>
             <div class="position">
                 <form
-                onsubmit = "order.addOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], Salad[document.getElementById('saladAmount').value]));return false"
-                onreset = "order.deleteOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], Salad[document.getElementById('saladAmount').value]));return false"
+                onsubmit = "order.addOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], document.getElementById('saladAmount').value));return false"
+                onreset = "order.deleteOrderItem(temp = new Salad(Salad[document.getElementById('saladType').value], document.getElementById('saladAmount').value));return false"
                 >
                      Type:
                     <select name="salad" id="saladType">
@@ -79,24 +77,34 @@
                 </form>
             </div>
             <hr>
-        <h2>For console run:</h2>
+            <form action="/src//js/main.js"
+                    onsubmit = "order.pay();return false"
+                    onreset = "order = new Order();return false"   
+            >
+                <input type="submit" value="Pay ordered">
+                <input type="reset" value="New order"><br><br>
+                <input type="button" onclick="alert(`Order cost ${order.totalPrice()}\nOrder callories ${order.totalCalories()}`)" value="Show total">
+            </form>
+            <hr>
+        </section>
         <article>
-             - Varialbes implemented in the programm :<br>
-            <code>
-            <ul>
-                <li>item1 ~ new Hamburger(Hamburger.STUFFING_CHEESE, Hamburger.SIZE_LARGE)</li>
-                <li>item2 ~ new Salad(Salad.OLIVIE, 218);</li>
-                <li>item3 ~ new Drink(Drink.COLA)</li>
-            </ul>
-            </code>
-            - Order function calculation tests implemented in the programm varialbes:<br>
+             <h2>For console testing:</h2>
+             <p> Order items variables:</p>
             <code>
                 <ul>
-                    <li>test1 ~ new Order(item1)</li>
-                    <li>test2 ~ new Order(item1, item2)</li>
-                    <li>test3 ~ Order(item1, item2, item3)</li>
-                    <li>test10cofe ~ Order(item3, item3, item3, item3, item3, item3, item3, item3, item3, item3,)</li>
+                    <li>var item1 = new Hamburger(Hamburger.STUFFING_CHEESE, Hamburger.SIZE_LARGE)</li>
+                    <li>var item2 = new Salad(Salad.OLIVIE, 218);</li>
+                    <li>var item3 = new Drink(Drink.COLA)</li>
                 </ul>
+            </code>
+            <p> Order function calculation tests:</p>
+                <code>
+                    <ul>
+                        <li>var test1 = new Order(item1)</li>
+                        <li>var test2 = new Order(item1, item2)</li>
+                        <li>var test3 = new Order(item1, item2, item3)</li>
+                        <li>var test4 =  new Order(item3, item3, item3, item3, item3, item3, item3, item3, item3, item3,)</li>
+                    </ul>
             </code>
         </article>
     </div>

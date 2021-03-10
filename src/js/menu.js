@@ -11,9 +11,6 @@ Hamburger.STUFFING_SALAD = { price: 50, energy: 20 };
 Hamburger.STUFFING_CHEESE = { price: 10, energy: 20 };
 Hamburger.STUFFING_POTATO = { price: 50, energy: 20 };
 
-var item1 = new Hamburger(Hamburger.STUFFING_CHEESE, Hamburger.SIZE_LARGE);
-var hamburger = new Hamburger(Hamburger[document.getElementById('burgerStuffing').value], Hamburger[document.getElementById('burgerSize').value]);
-
 Hamburger.prototype.getSize = function () { return this.size };
 Hamburger.prototype.getStuffing = function () { return this.stuffing };
 Hamburger.prototype.calculatePrice = function (){ return this.price };
@@ -21,7 +18,7 @@ Hamburger.prototype.calculateCalories = function () { return this.energy };
 
 function Salad(saladType, amount) {
     this.saladType = saladType;
-    this.amount = Math.round(amount / 50) * 50;
+    this.amount = Math.round(Number(amount) / 50) * 50;
     this.price = saladType.price * (Math.round(amount / 50) * 50) / 100;
     this.energy = saladType.energy * (Math.round(amount / 50) * 50) / 100;
 };
@@ -34,8 +31,6 @@ Salad.prototype.getAmount = function () { return this.amount };
 Salad.prototype.calculatePrice = function (){ return this.price };
 Salad.prototype.calculateCalories = function () { return this.energy };
 
-var item2 = new Salad(Salad.OLIVIE, 218);
-
 function Drink(drinkType) {
     this.drinkType = drinkType;
     this.price = drinkType.price;
@@ -47,5 +42,3 @@ Drink.COFE = { price: 80, energy: 20 };
 
 Drink.prototype.calculatePrice = function () { return this.price };
 Drink.prototype.calculateCalories = function () { return this.energy };
-
-var item3 = new Drink(Drink.COLA);
